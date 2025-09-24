@@ -1,294 +1,39 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>All Payment Ramm</title>
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="https://img1.pixhost.to/images/6045/604449334_rizzhosting.jpg">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Outfit', sans-serif;
-    }
-    body {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      color: #fff;
-      overflow: hidden;
-      position: relative;
-    }
-    .loader {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #0f172a;
-      z-index: 9999;
-      transition: opacity 0.5s ease, visibility 0.5s;
-    }
-    .loader.hidden {
-      opacity: 0;
-      visibility: hidden;
-    }
-    .spinner {
-      border: 5px solid #1e293b;
-      border-top: 5px solid #38bdf8;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      animation: spin 1s linear infinite;
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(50px);
-      transition: opacity 0.8s ease, transform 0.8s ease, visibility 0.8s;
-    }
-    .page.active {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-    .page.hidden {
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(50px);
-    }
-    h1 {
-      font-size: 2.2rem;
-      margin-bottom: 15px;
-      color: #38bdf8;
-    }
-    .typing-animation {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-      color: #fbbf24;
-      white-space: nowrap;
-      border-right: 3px solid #fbbf24;
-      width: 0;
-      overflow: hidden;
-      animation: typing 3s steps(30, end) forwards, blink 0.7s infinite;
-    }
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-    @keyframes blink {
-      0%, 100% { border-color: transparent; }
-      50% { border-color: #fbbf24; }
-    }
-    .subtitle {
-      font-size: 1rem;
-      margin-bottom: 25px;
-      color: #e2e8f0;
-    }
-    .btn {
-      display: inline-block;
-      padding: 12px 25px;
-      margin: 10px;
-      font-size: 1rem;
-      font-weight: 500;
-      color: #0f172a;
-      background: #38bdf8;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: transform 0.3s ease, background 0.3s ease;
-    }
-    .btn:hover {
-      transform: translateY(-3px);
-      background: #0284c7;
-      color: #fff;
-    }
-    .qr-frame {
-      margin: 20px auto;
-      width: 250px;
-      height: 250px;
-      border: 6px solid #38bdf8;
-      border-radius: 20px;
-      padding: 10px;
-      background: #1e293b;
-      box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-    .qr-frame:hover { transform: scale(1.05); }
-    .qr-frame img {
-      width: 100%;
-      height: 100%;
-      border-radius: 10px;
-    }
-    .payment-info {
-      margin: 20px auto;
-      max-width: 400px;
-      text-align: left;
-      background: rgba(30,41,59,0.8);
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    }
-    details {
-      margin-bottom: 10px;
-    }
-    details summary {
-      font-weight: bold;
-      cursor: pointer;
-      color: #38bdf8;
-      margin-bottom: 8px;
-    }
-    .social {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 20px;
-    }
-    .overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.9);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.5s ease, visibility 0.5s;
-      z-index: 10000;
-    }
-    .overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-    .overlay img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(56,189,248,0.8);
-    }
-  </style>
-</head>
-<body>
-  <!-- 🎵 Musik autoplay -->
-  <audio autoplay loop hidden>
-    <source src="https://qu.ax/jYlMk.mp3" type="audio/mpeg">
-  </audio>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Payment Ramm</title>
+    <!-- Tambahkan favicon di sini -->
+    <link rel="icon" type="image/png" href="https://img1.pixhost.to/images/6045/604449334_rizzhosting.jpg">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
 
-  <div class="loader" id="loader">
-    <div class="spinner"></div>
-  </div>
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: #fff;
+            overflow: hidden;
+            position: relative;
+        }
 
-  <div class="page" id="about">
-    <h1>Hey, I'm Ramm</h1>
-    <div class="typing-animation">Website Payment</div>
-    <p class="subtitle">Selamat datang di website payment Ramm</p>
-    <a href="#" class="btn" onclick="showPayment()">Go to Payment</a>
-  </div>
-
-  <div class="page hidden" id="payment">
-    <h1>Payment Methods</h1>
-    <p class="subtitle">Silahkan pilih salah satu metode pembayaran di bawah ini</p>
-
-    <div class="qr-frame" onclick="zoomQR()">
-      <img id="qrisImage" src="https://qu.ax/KRNGO.jpg" alt="QR Code for Payment">
-    </div>
-
-    <p class="subtitle">Scan kode QR di atas dengan aplikasi pembayaran Anda<br>
-    <strong>Note:</strong> WAJIB SS BUKTI TF!!</p>
-
-    <div class="payment-info">
-      <details>
-        <summary>E-WALLET</summary>
-        <p><strong>DANA</strong>: 083862715733</p>
-        <p><strong>GOPAY</strong>: 083862715733</p>
-        <p><strong>OVO</strong>: gaada</p>
-        <p><strong>NOTE</strong>: WAJIB SS BUKTI TF!!!</p>
-      </details>
-      <details>
-        <summary>TRANSFER BANK</summary>
-        <p><strong>SEABANK</strong>: LUPA NO BANK</p>
-      </details>
-    </div>
-
-    <div class="social">
-      <a href="https://wa.me/6283862715733" target="_blank" class="btn">WhatsApp</a>
-      <a href="https://ramm-website.vercel.app" target="_blank" class="btn">Web Utama</a>
-      <a href="https://t.me/rammhv" target="_blank" class="btn">Telegram</a>
-      <a href="https://whatsapp.com/channel/0029Vb6RHKFLY6dF6uqxYi0x" target="_blank" class="btn">Testimoni</a>
-    </div>
-
-    <a href="#" class="btn" onclick="showAbout()">Back</a>
-  </div>
-
-  <div class="overlay" id="qrOverlay" onclick="closeZoom()">
-    <img id="zoomedQR" src="" alt="QR Code for Payment">
-  </div>
-
-  <script>
-    window.addEventListener('load', () => {
-      const loader = document.getElementById('loader');
-      const about = document.getElementById('about');
-      setTimeout(() => {
-        loader.classList.add('hidden');
-        setTimeout(() => {
-          about.classList.add('active');
-        }, 200);
-      }, 2500);
-    });
-
-    function showPayment() {
-      const about = document.getElementById('about');
-      const payment = document.getElementById('payment');
-      about.classList.remove('active');
-      about.classList.add('hidden');
-      setTimeout(() => {
-        payment.classList.remove('hidden');
-        payment.classList.add('active');
-      }, 900);
-    }
-
-    function showAbout() {
-      const payment = document.getElementById('payment');
-      const about = document.getElementById('about');
-      payment.classList.remove('active');
-      payment.classList.add('hidden');
-      setTimeout(() => {
-        about.classList.remove('hidden');
-        about.classList.add('active');
-      }, 900);
-    }
-
-    function zoomQR() {
-      const qrImage = document.getElementById('qrisImage').src;
-      const overlay = document.getElementById('qrOverlay');
-      document.getElementById('zoomedQR').src = qrImage;
-      overlay.classList.add('active');
-    }
-
-    function closeZoom() {
-      const overlay = document.getElementById('qrOverlay');
-      overlay.classList.remove('active');
-    }
-  </script>
-</body>
-</html>
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            display: flex;
+            justify-content: center;
+            align-items: center;
             z-index: 9999;
             opacity: 1;
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
@@ -757,7 +502,7 @@
 
     <div class="page" id="about">
         <h1>Hey, I'm Ramm</h1>
-        <div class="typing-animation">Website Payment</div>
+        <div class="typing-animation">I'm a Website Payment</div>
         <p class="subtitle">Selamat datang di website payment Ramm</p>
         <a href="#" class="btn" onclick="showPayment()">Go to Payment</a>
     </div>
@@ -790,9 +535,9 @@
 
         <div class="social">
             <a href="https://wa.me/6283862715733" target="_blank" class="btn">WhatsApp</a>
-            <a href="https://ramm-website.vercel.app" target="_blank" class="btn">Web Utama</a>
+            <a href="https://ramm-website.vercel.app/" target="_blank" class="btn">Web Utama</a>
             <a href="https://t.me/rammhv" target="_blank" class="btn">Telegram</a>
-            <a href="https://whatsapp.com/channel/0029Vb6RHKFLY6dF6uqxYi0x" target="_blank" class="btn">Testimoni</a>
+            <a href="https://whatsapp.com/channel/0029Vb4sl1RE50UpymLowJ15" target="_blank" class="btn">Testimoni</a>
         </div>
 
         <a href="#" class="btn" onclick="showAbout()">Back</a>
